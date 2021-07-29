@@ -1,6 +1,6 @@
 # spotify_clone
 
-A new Flutter project.
+Clone do aplicativo do Spotify desenvolvido durante a disciplina de Desenvolvimento de Aplicações Móveis (ECP UFMA 2021-1)
 
 ## Getting Started
 
