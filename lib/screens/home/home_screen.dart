@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/screens/home/widgets/recent_album_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -37,7 +38,45 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Row(
-                children: [],
+                children: [
+                  RecentAlbumWidget(
+                    albumImageName: "assets/images/nirvana.jpeg",
+                    albumTitle: "Nirvana - Nevermind",
+                  ),
+                  SizedBox(width: 10),
+                  RecentAlbumWidget(
+                    albumImageName: "assets/images/nirvana.jpeg",
+                    albumTitle: "Nirvana - Nevermind",
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  RecentAlbumWidget(
+                    albumImageName: "assets/images/nirvana.jpeg",
+                    albumTitle: "Nirvana - Nevermind",
+                  ),
+                  SizedBox(width: 10),
+                  RecentAlbumWidget(
+                    albumImageName: "assets/images/nirvana.jpeg",
+                    albumTitle: "Nirvana - Nevermind",
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  RecentAlbumWidget(
+                    albumImageName: "assets/images/nirvana.jpeg",
+                    albumTitle: "Nirvana - Nevermind",
+                  ),
+                  SizedBox(width: 10),
+                  RecentAlbumWidget(
+                    albumImageName: "assets/images/nirvana.jpeg",
+                    albumTitle: "Nirvana - Nevermind",
+                  ),
+                ],
               ),
               // Text("Boa noite"),
               // Text("Card1"),
