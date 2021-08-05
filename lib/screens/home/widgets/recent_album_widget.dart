@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/core/domain/album.dart';
 
 class RecentAlbumWidget extends StatelessWidget {
-  final String albumImageName;
-  final String albumTitle;
-  // final double width;
+  final Album album;
 
-  RecentAlbumWidget({
-    @required this.albumImageName,
-    @required this.albumTitle,
-    // this.width = 180,
-  });
+  RecentAlbumWidget(this.album);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +23,7 @@ class RecentAlbumWidget extends StatelessWidget {
               child: AspectRatio(
                   aspectRatio: 1,
                   child: Image.asset(
-                    albumImageName,
+                    album.imageName,
                     fit: BoxFit.fitHeight,
                   )),
             ),
@@ -36,7 +31,7 @@ class RecentAlbumWidget extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Text(
-                albumTitle,
+                album.title,
                 softWrap: true,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,

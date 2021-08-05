@@ -1,10 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/core/domain/album.dart';
+import 'package:spotify_clone/screens/home/widgets/recent_album_panel_widget.dart';
 import 'package:spotify_clone/screens/home/widgets/recent_album_widget.dart';
+import 'package:spotify_clone/screens/home/widgets/release_album.dart';
 
 class HomeScreen extends StatelessWidget {
+  final List<Album> albums = [
+    Album(
+      imageName: "assets/images/nirvana.jpeg",
+      title: "Nirvana - Nevermind",
+    ),
+    Album(
+      imageName: "assets/images/skank.jpeg",
+      title: "Skank - Maquinarama",
+    ),
+    Album(
+      imageName: "assets/images/nirvana.jpeg",
+      title: "Nirvana - Nevermind",
+    ),
+    Album(
+      imageName: "assets/images/nirvana.jpeg",
+      title: "Nirvana - Nevermind",
+    ),
+    Album(
+      imageName: "assets/images/nirvana.jpeg",
+      title: "Nirvana - Nevermind",
+    ),
+    Album(
+      imageName: "assets/images/nirvana.jpeg",
+      title: "Nirvana - Nevermind",
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(
@@ -37,51 +68,9 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Row(
-                children: [
-                  RecentAlbumWidget(
-                    albumImageName: "assets/images/nirvana.jpeg",
-                    albumTitle: "Nirvana - Nevermind",
-                  ),
-                  SizedBox(width: 10),
-                  RecentAlbumWidget(
-                    albumImageName: "assets/images/nirvana.jpeg",
-                    albumTitle: "Nirvana - Nevermind",
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  RecentAlbumWidget(
-                    albumImageName: "assets/images/nirvana.jpeg",
-                    albumTitle: "Nirvana - Nevermind",
-                  ),
-                  SizedBox(width: 10),
-                  RecentAlbumWidget(
-                    albumImageName: "assets/images/nirvana.jpeg",
-                    albumTitle: "Nirvana - Nevermind",
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  RecentAlbumWidget(
-                    albumImageName: "assets/images/nirvana.jpeg",
-                    albumTitle: "Nirvana - Nevermind",
-                  ),
-                  SizedBox(width: 10),
-                  RecentAlbumWidget(
-                    albumImageName: "assets/images/nirvana.jpeg",
-                    albumTitle: "Nirvana - Nevermind",
-                  ),
-                ],
-              ),
-              // Text("Boa noite"),
-              // Text("Card1"),
-              // Text("Card2"),
-              // Text("Card3"),
+              RecentAlbumPanelWidget(albums),
+              SizedBox(height: 30),
+              AlbumReleaseWidget(albums[1]),
             ],
           ),
         ),
