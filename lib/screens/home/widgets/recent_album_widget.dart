@@ -30,11 +30,20 @@ class RecentAlbumWidget extends StatelessWidget {
             SizedBox(width: 5),
             Expanded(
               flex: 3,
-              child: Text(
-                album.title,
-                softWrap: true,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  album.title,
+                  softWrap: true,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "OpenSans",
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                  ),
+                ),
               ),
             ),
           ],
