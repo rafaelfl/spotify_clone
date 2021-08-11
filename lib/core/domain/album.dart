@@ -13,4 +13,9 @@ class Album {
       this.imageName = "",
       this.year = 2021,
       this.artist});
+
+  @override
+  String toString() {
+    return "$title - $year";
+  }
 }

@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:spotify_clone/core/domain/album.dart';
 import 'package:spotify_clone/core/domain/artist.dart';
 import 'package:spotify_clone/core/domain/music.dart';
-import 'package:spotify_clone/screens/home/widgets/recent_album_panel_widget.dart';
-import 'package:spotify_clone/screens/home/widgets/release_album_widget.dart';
+import 'package:spotify_clone/screens/home/widgets/album_release/release_album_widget.dart';
+import 'package:spotify_clone/screens/home/widgets/recent_albums/recent_album_panel_widget.dart';
+import 'package:spotify_clone/screens/home/widgets/recently_played_albums/recently_played_album.dart';
+import 'package:spotify_clone/screens/home/widgets/recently_played_albums/recently_played_panel.dart';
+import 'package:spotify_clone/screens/home/widgets/toolbar/toolbar_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   List<Album> albums;
@@ -83,32 +86,36 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Boa noite",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontFamily: "OpenSans",
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.history, size: 28),
-                          SizedBox(width: 20),
-                          Icon(Icons.settings_outlined, size: 28),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                ToolbarWidget(),
                 RecentAlbumPanelWidget(albums),
                 SizedBox(height: 30),
                 MusicReleaseWidget(releaseMusic),
+                SizedBox(height: 30),
+                RecentlyPlayedPanel(albums: albums),
+                // ConstrainedBox(
+                //   constraints: BoxConstraints(maxHeight: 100),
+                //   child: ListView(
+                //     scrollDirection: Axis.horizontal,
+                //     padding: const EdgeInsets.all(8),
+                //     children: <Widget>[
+                //       Container(
+                //         height: 50,
+                //         color: Colors.amber[600],
+                //         child: const Center(child: Text('Entry A')),
+                //       ),
+                //       Container(
+                //         height: 50,
+                //         color: Colors.amber[500],
+                //         child: const Center(child: Text('Entry B')),
+                //       ),
+                //       Container(
+                //         height: 50,
+                //         color: Colors.amber[100],
+                //         child: const Center(child: Text('Entry C')),
+                //       ),
+                //     ],
+                //   ),
+                // )
               ],
             ),
           ),
