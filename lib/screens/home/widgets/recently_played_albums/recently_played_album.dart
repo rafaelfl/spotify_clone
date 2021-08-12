@@ -3,11 +3,13 @@ import 'package:spotify_clone/core/domain/album.dart';
 
 class RecentlyPlayedAlbum extends StatelessWidget {
   final Album album;
+  final void Function(Album) updateRecentAlbum;
 
-  const RecentlyPlayedAlbum({Key key, this.album}) : super(key: key);
+  const RecentlyPlayedAlbum({this.album, this.updateRecentAlbum});
 
   recentlyPlayedAlbumClick() {
-    print("Album clicked: $album");
+    // print("Album clicked: $album");
+    updateRecentAlbum(album);
   }
 
   @override

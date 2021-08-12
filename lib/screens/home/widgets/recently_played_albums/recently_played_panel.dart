@@ -4,8 +4,9 @@ import 'package:spotify_clone/screens/home/widgets/recently_played_albums/recent
 
 class RecentlyPlayedPanel extends StatelessWidget {
   final List<Album> albums;
+  final void Function(Album) updateRecentAlbum;
 
-  const RecentlyPlayedPanel({Key key, this.albums}) : super(key: key);
+  const RecentlyPlayedPanel({this.albums, this.updateRecentAlbum});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +34,7 @@ class RecentlyPlayedPanel extends StatelessWidget {
               itemBuilder: (context, index) {
                 return RecentlyPlayedAlbum(
                   album: albums[index],
+                  updateRecentAlbum: updateRecentAlbum,
                 );
               },
             ),

@@ -97,7 +97,8 @@ class MusicReleaseWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           // crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Icon(Icons.favorite_border_outlined, size: 30),
+                            Icon(Icons.favorite_border_outlined,
+                                size: 30, color: Colors.red),
                             Icon(Icons.play_circle_rounded, size: 30),
                           ],
                         ),

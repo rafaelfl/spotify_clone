@@ -4,26 +4,36 @@ import 'package:spotify_clone/core/domain/artist.dart';
 import 'package:spotify_clone/core/domain/music.dart';
 import 'package:spotify_clone/screens/home/widgets/album_release/release_album_widget.dart';
 import 'package:spotify_clone/screens/home/widgets/recent_albums/recent_album_panel_widget.dart';
-import 'package:spotify_clone/screens/home/widgets/recently_played_albums/recently_played_album.dart';
 import 'package:spotify_clone/screens/home/widgets/recently_played_albums/recently_played_panel.dart';
 import 'package:spotify_clone/screens/home/widgets/toolbar/toolbar_widget.dart';
 
-class HomeScreen extends StatelessWidget {
-  List<Album> albums;
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<Album> recentAlbums;
+  List<Album> albumList;
+
   List<Artist> artists;
   Music releaseMusic;
 
-  HomeScreen() {
+  @override
+  void initState() {
+    super.initState();
+
     artists = [
       Artist(
           name: "Capital Inicial",
           imageIcon: "assets/images/icone_capital.jpeg"),
     ];
 
-    albums = [
+    albumList = [
       Album(
         imageName: "assets/images/nirvana.jpeg",
         title: "Nirvana - Nevermind",
+        year: 1990,
       ),
       Album(
         imageName: "assets/images/skank.jpeg",
@@ -46,7 +56,25 @@ class HomeScreen extends StatelessWidget {
         imageName: "assets/images/skank_velocia.jpeg",
         title: "Skank - Velocia",
       ),
+      Album(
+        imageName: "assets/images/am.jpeg",
+        title: "Arctic Monkeys - AM",
+      ),
+      Album(
+        imageName: "assets/images/fear.jpeg",
+        title: "Iron Maden - Fear of the Dark",
+      ),
+      Album(
+        imageName: "assets/images/favourit_worst.jpeg",
+        title: "Arctic Monkeys - Favourite Worst Nightmare",
+      ),
+      Album(
+        imageName: "assets/images/metallica.jpeg",
+        title: "Metallica - Master of Puppets",
+      ),
     ];
+
+    recentAlbums = albumList.take(6).toList();
 
     releaseMusic = Music(
       artist: artists[0],
@@ -54,8 +82,16 @@ class HomeScreen extends StatelessWidget {
       author: "Capital Inicial, Mariana Volker",
       isFavorite: false,
       isSingle: true,
-      album: albums[2],
+      album: albumList[2],
     );
+  }
+
+  void updateRecentAlbum(Album lastPlayedAlbum) {
+    setState(() {
+      recentAlbums.removeLast();
+      recentAlbums.insert(0, lastPlayedAlbum);
+      print("Lista de albuns atualizada!");
+    });
   }
 
   @override
@@ -87,35 +123,14 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ToolbarWidget(),
-                RecentAlbumPanelWidget(albums),
+                RecentAlbumPanelWidget(recentAlbums),
                 SizedBox(height: 30),
                 MusicReleaseWidget(releaseMusic),
                 SizedBox(height: 30),
-                RecentlyPlayedPanel(albums: albums),
-                // ConstrainedBox(
-                //   constraints: BoxConstraints(maxHeight: 100),
-                //   child: ListView(
-                //     scrollDirection: Axis.horizontal,
-                //     padding: const EdgeInsets.all(8),
-                //     children: <Widget>[
-                //       Container(
-                //         height: 50,
-                //         color: Colors.amber[600],
-                //         child: const Center(child: Text('Entry A')),
-                //       ),
-                //       Container(
-                //         height: 50,
-                //         color: Colors.amber[500],
-                //         child: const Center(child: Text('Entry B')),
-                //       ),
-                //       Container(
-                //         height: 50,
-                //         color: Colors.amber[100],
-                //         child: const Center(child: Text('Entry C')),
-                //       ),
-                //     ],
-                //   ),
-                // )
+                RecentlyPlayedPanel(
+                  albums: albumList,
+                  updateRecentAlbum: updateRecentAlbum,
+                ),
               ],
             ),
           ),
