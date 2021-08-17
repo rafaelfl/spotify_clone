@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/core/domain/music.dart';
 
-class MusicReleaseWidget extends StatelessWidget {
+class MusicReleaseWidget extends StatefulWidget {
   final Music musicRelease;
 
   const MusicReleaseWidget(this.musicRelease);
+
+  @override
+  _MusicReleaseWidgetState createState() => _MusicReleaseWidgetState();
+}
+
+class _MusicReleaseWidgetState extends State<MusicReleaseWidget> {
+  bool likeRelease = false;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +23,7 @@ class MusicReleaseWidget extends StatelessWidget {
             child: Container(
               width: 50,
               height: 50,
-              child: Image.asset(this.musicRelease.artist.imageIcon),
+              child: Image.asset(this.widget.musicRelease.artist.imageIcon),
             ),
           ),
           Column(
@@ -33,7 +40,7 @@ class MusicReleaseWidget extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Text(
-                this.musicRelease.artist.name,
+                this.widget.musicRelease.artist.name,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -57,7 +64,7 @@ class MusicReleaseWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Image.asset(
-                this.musicRelease.album.imageName,
+                this.widget.musicRelease.album.imageName,
                 fit: BoxFit.contain,
               ),
               Expanded(
@@ -97,8 +104,16 @@ class MusicReleaseWidget extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           // crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Icon(Icons.favorite_border_outlined,
-                                size: 30, color: Colors.red),
+                            InkWell(
+                                onTap: () {
+                                  setState(() => likeRelease = !likeRelease);
+                                },
+                                child: Icon(
+                                  Icons.favorite_border_outlined,
+                                  size: 30,
+                                  color:
+                                      likeRelease ? Colors.red : Colors.white,
+                                )),
                             Icon(Icons.play_circle_rounded, size: 30),
                           ],
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/screens/home/home_screen.dart';
+import 'package:spotify_clone/screens/play/play_screen.dart';
 
 class SpotifyApp extends StatelessWidget {
   @override
@@ -12,7 +13,12 @@ class SpotifyApp extends StatelessWidget {
         // backgroundColor: Colors.black,
         // primaryColor: Colors.white,
       ),
-      home: HomeScreen(),
+      // home: HomeScreen(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => HomeScreen(),
+        "/play": (context) => PlayScreen(),
+      },
     );
   }
 }
