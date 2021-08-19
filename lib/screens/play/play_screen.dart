@@ -8,10 +8,44 @@ class PlayScreen extends StatelessWidget {
     final Album album = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("${album.title}"),
+      backgroundColor: Color(0xFF121212),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: false,
+            snap: false,
+            floating: false,
+            expandedHeight: 280.0,
+            toolbarHeight: 50.0,
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF618d69),
+                      Color(0xFF121212),
+                    ],
+                    stops: [
+                      0.3,
+                      0.95,
+                    ]),
+              ),
+              child: FlexibleSpaceBar(
+                background: Padding(
+                  padding: const EdgeInsets.all(50.0),
+                  child: Image.asset(
+                    album.imageName,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: PlayScreenBody(album),
+          ),
+        ],
       ),
-      body: PlayScreenBody(album),
     );
   }
 }

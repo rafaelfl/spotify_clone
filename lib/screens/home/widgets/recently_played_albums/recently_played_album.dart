@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:spotify_clone/core/domain/album.dart';
+import 'package:spotify_clone/core/store/album_store.dart';
 
 class RecentlyPlayedAlbum extends StatelessWidget {
   final Album album;
-  final void Function(Album) updateRecentAlbum;
 
-  const RecentlyPlayedAlbum({this.album, this.updateRecentAlbum});
+  const RecentlyPlayedAlbum({this.album});
 
-  recentlyPlayedAlbumClick() {
+  recentlyPlayedAlbumClick(BuildContext context) {
+    AlbumStore albumStore = Provider.of<AlbumStore>(context, listen: false);
+    albumStore.updateRecentAlbum(album);
     // print("Album clicked: $album");
-    updateRecentAlbum(album);
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: recentlyPlayedAlbumClick,
+      onTap: () => recentlyPlayedAlbumClick(context),
       child: Container(
         padding: const EdgeInsets.all(5),
         width: 100,

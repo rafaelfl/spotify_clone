@@ -10,8 +10,13 @@ class RecentAlbumWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        onTap: () {
-          Navigator.pushNamed(context, "/play", arguments: album);
+        onTap: () async {
+          var value =
+              await Navigator.pushNamed(context, "/play", arguments: album);
+
+          print(value);
+
+          print("Tap finalizado");
         },
         child: Container(
           decoration: BoxDecoration(

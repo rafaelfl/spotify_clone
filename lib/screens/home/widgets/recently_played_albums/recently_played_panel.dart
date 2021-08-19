@@ -34,7 +34,6 @@ class RecentlyPlayedPanel extends StatelessWidget {
               itemBuilder: (context, index) {
                 return RecentlyPlayedAlbum(
                   album: albums[index],
-                  updateRecentAlbum: updateRecentAlbum,
                 );
               },
             ),

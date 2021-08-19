@@ -6,18 +6,30 @@ class PlayScreenBody extends StatelessWidget {
 
   const PlayScreenBody(this.album);
 
+  void voltarClick(BuildContext context) {
+    Navigator.pop(context, "Meu album: ${album.title}");
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: EdgeInsets.all(16),
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.asset(
-            album.imageName,
-            height: 200,
+          Text(
+            album.title,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              fontFamily: "OpenSans",
+            ),
           ),
-          Text(album.title),
+          TextButton(
+            onPressed: () => voltarClick(context),
+            child: Text("Voltar"),
+          )
         ],
       ),
     );
