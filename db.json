@@ -1,0 +1,41 @@
+{
+    "albums": [
+        {
+            "imageName": "assets/images/nirvana.jpeg",
+            "title": "Nirvana - Nevermind",
+            "year": 1990
+        },
+        {
+            "imageName": "assets/images/skank.jpeg",
+            "title": "Skank - Maquinarama"
+        },
+        {
+            "imageName": "assets/images/aerosmith.jpg",
+            "title": "Aerosmith - Greatest Hits"
+        },
+        {
+            "imageName": "assets/images/bonjovi.jpeg",
+            "title": "Bon Jovi - Slippery When Wet"
+        },
+        {
+            "imageName": "assets/images/skank_velocia.jpeg",
+            "title": "Skank - Velocia"
+        },
+        {
+            "imageName": "assets/images/am.jpeg",
+            "title": "Arctic Monkeys - AM"
+        },
+        {
+            "imageName": "assets/images/fear.jpeg",
+            "title": "Iron Maden - Fear of the Dark"
+        },
+        {
+            "imageName": "assets/images/favourit_worst.jpeg",
+            "title": "Arctic Monkeys - Favourite Worst Nightmare"
+        },
+        {
+            "imageName": "assets/images/metallica.jpeg",
+            "title": "Metallica - Master of Puppets"
+        }
+    ]
+}
