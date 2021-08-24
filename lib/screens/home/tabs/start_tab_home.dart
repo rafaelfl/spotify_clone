@@ -19,13 +19,6 @@ class _StartTabHomeState extends State<StartTabHome> {
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      ProfileStore profileStore =
-          Provider.of<ProfileStore>(context, listen: false);
-
-      print(" >>> ${profileStore.username}");
-    });
   }
 
   // void updateRecentAlbum(Album lastPlayedAlbum) {

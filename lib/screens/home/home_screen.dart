@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/screens/home/tabs/library_tab_home.dart';
 import 'package:spotify_clone/screens/home/tabs/start_tab_home.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,9 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Center(
                 child: Text("Buscar"),
               ),
-              Center(
-                child: Text("Sua Biblioteca"),
-              ),
+              LibraryTabHome(),
             ],
           ),
         ),
