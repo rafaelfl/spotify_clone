@@ -37,5 +37,9 @@
             "imageName": "assets/images/metallica.jpeg",
             "title": "Metallica - Master of Puppets"
         }
-    ]
+    ],
+    "profile": {
+        "username": "rafaelf",
+        "thumbUrl": "https://media.istockphoto.com/vectors/man-avatar-profile-male-face-icon-vector-illustration-vector-id1142192538?k=6&m=1142192538&s=170667a&w=0&h=mKkx-3SlGFT_QL10L3zcx_jepev6R7qk2-b7q5XpYA4="
+    }
 }
