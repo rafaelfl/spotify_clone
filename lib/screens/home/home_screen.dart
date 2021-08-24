@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spotify_clone/screens/home/tabs/library_tab_home.dart';
 import 'package:spotify_clone/screens/home/tabs/start_tab_home.dart';
 
@@ -8,6 +9,25 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String username = "VAZIO";
+
+  @override
+  void initState() {
+    super.initState();
+
+    retrieveUsername();
+  }
+
+  Future retrieveUsername() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String myUsername = prefs.getString("username");
+
+    setState(() {
+      username = myUsername;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -19,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               StartTabHome(),
               Center(
-                child: Text("Buscar"),
+                child: Text("Buscar - $username"),
               ),
               LibraryTabHome(),
             ],
