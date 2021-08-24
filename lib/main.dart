@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:spotify_clone/core/store/album_store.dart';
+import 'package:spotify_clone/core/store/profile_store.dart';
 import 'package:spotify_clone/spotify_app.dart';
 
 void main() {
@@ -9,7 +10,10 @@ void main() {
       providers: [
         ChangeNotifierProvider(
           create: (context) => AlbumStore(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ProfileStore(),
+        ),
       ],
       child: SpotifyApp(),
     ),

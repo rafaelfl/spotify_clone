@@ -4,6 +4,7 @@ import 'package:spotify_clone/core/domain/album.dart';
 import 'package:spotify_clone/core/domain/artist.dart';
 import 'package:spotify_clone/core/domain/music.dart';
 import 'package:spotify_clone/core/store/album_store.dart';
+import 'package:spotify_clone/core/store/profile_store.dart';
 import 'package:spotify_clone/screens/home/widgets/album_release/release_album_widget.dart';
 import 'package:spotify_clone/screens/home/widgets/recent_albums/recent_album_panel_widget.dart';
 import 'package:spotify_clone/screens/home/widgets/recently_played_albums/recently_played_panel.dart';
@@ -18,6 +19,13 @@ class _StartTabHomeState extends State<StartTabHome> {
   @override
   void initState() {
     super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ProfileStore profileStore =
+          Provider.of<ProfileStore>(context, listen: false);
+
+      print(" >>> ${profileStore.username}");
+    });
   }
 
   // void updateRecentAlbum(Album lastPlayedAlbum) {
